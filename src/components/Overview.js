@@ -1,13 +1,29 @@
-import React from 'react';
+import React from "react";
 
-   class Task extends React.Component {
+class Task extends React.Component {
   constructor(props) {
     super(props);
-    this.state = "task";
+    this.state = { tasks: [] };
   }
 
+  handleClick = () => {
+    const input = document.querySelector(".user-input");
+    console.log(input.value);
+    const updatedTask = [...this.state.tasks, input.value];
+    console.log(updatedTask);
+    this.setState({ tasks: updatedTask });
+  };
+
   render() {
-    return <h2>ayo from overview.js</h2>;
+    return (
+      <section>
+        <input type="text" className="user-input"></input>
+        <button className="addTaskButt" onClick={this.handleClick}>
+          add task
+        </button>
+        <ul className="tasks"></ul>
+      </section>
+    );
   }
 }
 
