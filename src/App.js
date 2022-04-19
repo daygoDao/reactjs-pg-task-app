@@ -1,12 +1,29 @@
+import React, { Component } from "react";
 import Task from "./components/Overview";
 
-function App() {
-  return (
-    <div className="App">
-      hello from App.js
-      <Task />
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      task: { text: "" },
+      tasks: [],
+    };
+  }
+
+  render() {
+    const { task, tasks } = this.state;
+
+    return (
+      <div>
+        <form>
+          <label htmlFor="taskInput">Enter Task</label>
+          <input type="text" id="taskInput" />
+          <button type="submit">Add Task</button>
+        </form>
+      </div>
+    );
+  }
 }
 
 export default App;

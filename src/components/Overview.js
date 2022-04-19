@@ -12,6 +12,13 @@ class Task extends React.Component {
     const updatedTask = [...this.state.tasks, input.value];
     console.log(updatedTask);
     this.setState({ tasks: updatedTask });
+    this.appendTask();
+  };
+
+  appendTask = () => {
+    for (let i = 0; i < this.state.tasks.length; i++) {
+      <li>{this.state.tasks[i]}</li>;
+    }
   };
 
   render() {
@@ -21,7 +28,8 @@ class Task extends React.Component {
         <button className="addTaskButt" onClick={this.handleClick}>
           add task
         </button>
-        <ul className="tasks"></ul>
+        <ul className="tasks">
+        </ul>
       </section>
     );
   }
